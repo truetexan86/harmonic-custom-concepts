@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Harmonic Custom Concepts is an East Texas technology and design studio owned by Michael Jeffrey Spencer. ProsaY, Spades Blast, X-plore, and the Clair engine.">
+<link rel="icon" href="data:,">
+<title>Harmonic Custom Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0c0e; --bg2:#111113; --panel:#141416; --panel2:#1a1a1c;
+  --ink:#f5f3ef; --muted:#a8a49c; --faint:#7d7a74;
+  --line:#26262a; --line2:#343438;
+  --gold:#c8a96a; --gold2:#e2c98f; --silver:#d9d9de;
+  --good:#7bc79a; --amber:#d9b36c;
+  --radius:6px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#fafaf8; --bg2:#f1efe9; --panel:#ffffff; --panel2:#f6f4ef;
+    --ink:#161614; --muted:#55534e; --faint:#7a776f;
+    --line:#e2ded4; --line2:#cfc9bb;
+    --gold:#8c7340; --gold2:#6f5a2e; --silver:#26262a;
+    color-scheme:light;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.65}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+@media (max-width:560px){ .wrap{width:calc(100% - 32px)} body{font-size:16px} }
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif;font-weight:600;letter-spacing:0}
+.label{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.rule{width:56px;height:2px;background:var(--gold);border:0;margin:22px 0}
+
+/* Nav */
+header{position:sticky;top:0;z-index:60}
+nav{background:rgba(4,5,10,.94);backdrop-filter:blur(14px);border-bottom:1px solid #1d1f27}
+.navIn{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+.brandMark{width:46px;height:46px;background:#000;display:grid;place-items:center;overflow:hidden;flex:none}
+.brandMark img{width:100%;height:100%;object-fit:cover}
+.brand b{font-family:"Barlow",sans-serif;font-size:21px;font-weight:800;line-height:1;letter-spacing:.06em;text-transform:uppercase;display:block;background:linear-gradient(180deg,#f4f4f6 20%,#c6c9d1 55%,#878d99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.brand small{display:block;font-size:10px;letter-spacing:.34em;color:#9aa3d9;font-weight:700;margin-top:5px;text-transform:uppercase}
+.navLinks{display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.navLinks a{text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#d7d5cf;padding:6px 0;border-bottom:2px solid transparent}
+.navLinks a:hover{color:#fff;border-bottom-color:#7b2ff7}
+.navCta{color:#fff!important;border:0!important;padding:11px 20px!important;background:linear-gradient(92deg,#7b2ff7,#2f7bff);border-radius:4px}
+.navCta:hover{filter:brightness(1.12)}
+.rotateBtn{display:none;align-items:center;gap:7px;background:transparent;color:#e9c979;border:1px solid #8a6d2f;border-radius:4px;padding:10px 14px;font-family:inherit;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.rotateBtn svg{width:15px;height:15px;flex:none}
+.rotateBtn:hover{border-color:#e2c98f;color:#fff}
+@media (max-width:1100px){ .rotateBtn{display:inline-flex} }
+@media (orientation:landscape) and (max-height:700px){ .rotateBtn{display:none} }
+html.locked-landscape .rotateBtn{display:inline-flex}
+@media (max-width:700px){ .navLinks{gap:16px} .navLinks a:not(.navCta){display:none} .brand b{font-size:18px} }
+
+/* Hero */
+.hero{background:#04050a;color:#f5f3ef;border-bottom:1px solid #1d1f27;overflow:hidden}
+.heroIn{display:grid;grid-template-columns:minmax(0,44%) minmax(0,56%);align-items:center;min-height:min(88vh,860px)}
+.heroText{padding:56px 40px 56px 0;position:relative;z-index:2}
+.heroWords{font-family:"Barlow",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(58px,6.6vw,108px);line-height:.99;letter-spacing:.005em;margin:0}
+.heroWords span{display:block;background:linear-gradient(180deg,#fbfbfc 5%,#d8dae0 42%,#9ba0ab 68%,#e3e5ea);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.heroSub{font-size:clamp(21px,2.2vw,28px);font-weight:500;color:#f0eee8;margin:26px 0 0;letter-spacing:.01em}
+.heroLead{max-width:520px;margin:16px 0 0;color:#a9a69e;font-size:17px;line-height:1.65}
+.heroLead strong{color:#fff}
+.btnStart{display:inline-block;margin-top:32px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#fff;padding:17px 38px;border-radius:6px;background:linear-gradient(92deg,#7b2ff7,#2f7bff);box-shadow:0 10px 34px rgba(88,60,246,.38)}
+.btnStart:hover{filter:brightness(1.13)}
+.heroMeta{display:flex;flex-wrap:wrap;margin-top:38px;border-top:1px solid #23242c;padding-top:20px}
+.heroMeta span{font-size:12px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;color:#8f8c85;padding:0 16px;border-right:1px solid #2a2b33}
+.heroMeta span:first-child{padding-left:0}
+.heroMeta span:last-child{border-right:0}
+.heroArt{position:relative;align-self:stretch;min-height:420px}
+.heroArt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+.ctaRow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:15px 26px;border-radius:4px;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btnDark{background:var(--ink);color:var(--bg)}
+.btnDark:hover{opacity:.88}
+.btnLine{background:transparent;color:var(--ink);border-color:var(--line2)}
+.btnLine:hover{border-color:var(--gold)}
+/* Phone portrait: stack, art as a full width band under the words */
+@media (max-width:860px){
+  .heroIn{grid-template-columns:1fr;min-height:0}
+  .heroText{padding:44px 0 8px;text-align:left}
+  .heroWords{font-size:clamp(54px,15.5vw,84px)}
+  .heroArt{min-height:0;height:300px;margin-top:30px}
+  .heroArt img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%);mask-image:linear-gradient(180deg,transparent 0,#000 12%)}
+  .heroMeta span{padding:4px 12px 4px 0;border-right:0}
+}
+/* Landscape on a short screen (a turned phone, in any browser or in-app
+   webview): the whole page switches to its wide layout, not just the hero.
+   Keyed on aspect ratio as well as orientation, because some webviews
+   report orientation late or not at all while the aspect ratio always
+   follows the real viewport shape. The height ceiling is 700px so large
+   phones in landscape are covered, not only compact ones. */
+@media (orientation:landscape) and (max-height:700px), (min-aspect-ratio:13/10) and (max-height:700px){
+  section{padding:38px 0}
+  .navIn{padding:8px 0}
+  .brandMark{width:38px;height:38px}
+  .navLinks{gap:20px}
+  .navLinks a:not(.navCta){display:inline-block}
+  .heroIn{grid-template-columns:minmax(0,52%) minmax(0,48%);min-height:0}
+  .heroText{padding:24px 28px 24px 0}
+  .heroWords{font-size:clamp(36px,11.5svh,56px)}
+  .heroSub{font-size:19px;margin-top:12px}
+  .heroLead{display:none}
+  .btnStart{margin-top:16px;padding:13px 28px;font-size:13px}
+  .heroMeta{display:none}
+  .heroArt{min-height:0;height:calc(100vh - 118px);height:calc(100svh - 118px);min-height:220px;margin-top:0}
+  .heroArt img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+  .featured{padding:20px 0 28px}
+  .featGrid{grid-template-columns:repeat(3,1fr);gap:12px}
+  .feat figcaption{padding:8px 10px;font-size:10px}
+  .philo blockquote{font-size:clamp(22px,4.6vw,30px)}
+  .secHead{margin-bottom:24px}
+  .secHead h2{font-size:clamp(30px,4.6vw,40px)}
+  .workGrid{grid-template-columns:1fr 1fr;gap:14px}
+  .card{padding:22px}
+  .card h3{font-size:26px}
+  .showcase{margin-top:36px}
+  .showcaseFig img{aspect-ratio:21/9}
+  .showcaseBody{grid-template-columns:1.1fr .9fr;gap:24px;margin-top:20px}
+  .showcaseBody h3{font-size:clamp(26px,3.6vw,34px)}
+  .two{grid-template-columns:1fr 1fr;gap:14px}
+  .plain{padding:24px}
+  .invGrid{grid-template-columns:repeat(3,1fr);gap:14px}
+  .inv{padding:20px}
+  .divider{margin-top:40px}
+  .contact h2{font-size:clamp(32px,5vw,44px)}
+}
+
+/* Portrait locked webview fallback. Some in-app browsers hold the viewport
+   in portrait even when the phone itself is turned sideways, so no media
+   query ever sees a landscape viewport. When the device reports a physical
+   landscape orientation while the viewport is still portrait, the script at
+   the end of the page adds .locked-landscape and the whole page is rotated
+   into the landscape layout below. The rotated frame is sized in exact
+   pixels measured from the live viewport (the --lock-w and --lock-h
+   variables the script sets), never from vh or vw units: on the phone
+   that reported this broken, 100vh did not equal the visible frame
+   height, so the rotated page filled only part of the screen, clipped
+   at the edges, with a black band left over. In a normal rotating
+   browser this state never occurs and none of this applies. */
+html.locked-landscape, html.locked-landscape body{height:100%;overflow:hidden}
+html.locked-landscape #pageRoot{position:fixed;left:50%;top:50%;width:var(--lock-w,100vh);height:var(--lock-h,100vw);overflow-y:auto;overflow-x:hidden;background:var(--bg);transform:translate(-50%,-50%) rotate(var(--lock-rot,-90deg));transform-origin:center center;-webkit-overflow-scrolling:touch}
+html.locked-landscape section{padding:38px 0}
+html.locked-landscape .navIn{padding:8px 0}
+html.locked-landscape .brandMark{width:38px;height:38px}
+html.locked-landscape .navLinks a:not(.navCta){display:inline-block}
+html.locked-landscape .heroIn{grid-template-columns:minmax(0,52%) minmax(0,48%);min-height:0}
+html.locked-landscape .heroText{padding:24px 28px 24px 0}
+html.locked-landscape .heroWords{font-size:46px}
+html.locked-landscape .heroSub{font-size:19px;margin-top:12px}
+html.locked-landscape .heroLead{display:none}
+html.locked-landscape .btnStart{margin-top:16px;padding:13px 28px;font-size:13px}
+html.locked-landscape .heroMeta{display:none}
+html.locked-landscape .heroArt{min-height:260px;height:auto;margin-top:0}
+html.locked-landscape .heroArt img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+html.locked-landscape .featured{padding:20px 0 28px}
+html.locked-landscape .featGrid{grid-template-columns:repeat(3,1fr);gap:12px}
+html.locked-landscape .workGrid{grid-template-columns:1fr 1fr;gap:14px}
+html.locked-landscape .showcaseBody{grid-template-columns:1.1fr .9fr;gap:24px}
+html.locked-landscape .two{grid-template-columns:1fr 1fr;gap:14px}
+html.locked-landscape .invGrid{grid-template-columns:repeat(3,1fr);gap:14px}
+html.locked-landscape .secHead{margin-bottom:24px}
+html.locked-landscape .card{padding:22px}
+html.locked-landscape .showcaseFig img{aspect-ratio:21/9}
+html.locked-landscape .divider{margin-top:40px}
+html.locked-landscape .contact h2{font-size:40px}
+
+/* Featured work strip */
+.featured{background:#04050a;color:#f5f3ef;padding:30px 0 46px;border-bottom:1px solid #1d1f27}
+.featuredHead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.featuredHead h2{font-family:"Barlow",sans-serif;font-size:24px;font-weight:700;margin:0;letter-spacing:.01em}
+.featuredHead span{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8f8c85}
+.featGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{display:block;text-decoration:none;border:1px solid #26272f;background:#000}
+.feat img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.feat figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d7d5cf;border-top:1px solid #26272f}
+.feat figcaption i{font-style:normal;color:#8f8c85;letter-spacing:.1em}
+.feat:hover{border-color:#7b2ff7}
+.feat img.portrait{object-position:top center}
+.featText{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;padding:18px;color:#8f8c85;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1.9;background:#0a0a0d}
+.featText b{display:block;color:#d7d5cf;font-size:14px}
+@media (max-width:700px){ .featGrid{grid-template-columns:1fr} }
+
+/* Sections */
+section{padding:84px 0}
+.secHead{max-width:780px;margin-bottom:40px}
+.secHead.center{margin-inline:auto;text-align:center}
+.secHead.center .rule{margin-inline:auto}
+.secHead h2{font-size:clamp(36px,5vw,52px);line-height:1.08;margin:0 0 14px}
+.secHead p{color:var(--muted);font-size:18px;margin:0;line-height:1.7}
+
+/* Philosophy */
+.philo{background:var(--bg2);border-block:1px solid var(--line)}
+.philo blockquote{margin:0;font-family:"Playfair Display",serif;font-size:clamp(26px,3.8vw,38px);line-height:1.4;font-weight:500;max-width:940px}
+.philo blockquote b{color:var(--gold);font-weight:700}
+.philo cite{display:block;margin-top:22px;font-style:normal;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.22em}
+
+/* Work cards */
+.workGrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:860px){ .workGrid{grid-template-columns:1fr} }
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column}
+.cardTop{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.card h3{font-size:32px;line-height:1;margin:0}
+.card .kind{color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:7px}
+.status{flex:none;font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:7px 11px;border:1px solid var(--line2);color:var(--muted);white-space:nowrap;border-radius:3px}
+.status.live{color:var(--good);border-color:color-mix(in srgb, var(--good) 50%, var(--line))}
+.status.build{color:var(--amber);border-color:color-mix(in srgb, var(--amber) 50%, var(--line))}
+.card .tag{font-family:"Playfair Display",serif;font-style:italic;font-size:21px;color:var(--gold);margin:18px 0 2px;line-height:1.3}
+.card p{color:var(--muted);margin:10px 0 0}
+.card p strong{color:var(--ink)}
+.facts{list-style:none;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:9px}
+.facts li{padding-left:18px;position:relative;font-size:15.5px;color:var(--muted)}
+.facts li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--gold)}
+.facts li b{color:var(--ink)}
+
+/* Vision showcase */
+.vision{background:#080809;color:#f5f3ef;border-block:1px solid #222226}
+.vision .secHead p{color:#a8a49c}
+.showcase{margin-top:56px}
+.showcase:first-of-type{margin-top:0}
+.showcaseFig{margin:0;border:1px solid #2a2a2e;background:#000}
+.showcaseFig img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.showcaseFig figcaption{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 18px;background:#111113;color:#8f8c85;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-top:1px solid #2a2a2e}
+.showcaseFig figcaption b{color:#c8a96a}
+.showcaseBody{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;margin-top:30px;align-items:start}
+@media (max-width:860px){ .showcaseBody{grid-template-columns:1fr;gap:20px} }
+.showcaseBody h3{font-size:clamp(30px,4vw,42px);line-height:1.1;margin:0 0 12px}
+.showcaseBody h3 span{color:#c8a96a;font-style:italic}
+.showcaseFig .shotsRow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px;background:#0a0a0c}
+.showcaseFig .shotsRow figure{margin:0}
+.showcaseFig .shotsRow img{aspect-ratio:auto;height:auto;object-fit:contain;border:1px solid #2a2a2e;background:#000}
+.showcaseFig .shotsRow figcaption{display:block;padding:10px 2px 0;background:transparent;border-top:0;text-align:center}
+@media (max-width:560px){ .showcaseFig .shotsRow{gap:8px;padding:10px} .showcaseFig .shotsRow figcaption{font-size:10px;letter-spacing:.08em} }
+.noShot{padding:52px 28px;text-align:center;background:#0a0a0c}
+.noShot b{display:block;font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(22px,3vw,30px);color:#f5f3ef;text-transform:none;letter-spacing:0;margin-bottom:12px}
+.noShot span{display:block;max-width:520px;margin:0 auto;color:#a8a49c;font-size:15.5px;font-weight:400;letter-spacing:0;text-transform:none;line-height:1.7}
+.showcaseBody p{color:#bdbab2;margin:0;line-height:1.75}
+.showcaseBody p + p{margin-top:12px}
+.specList{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid #2a2a2e}
+.specList li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #2a2a2e;font-size:15px}
+.specList li span{color:#8f8c85;letter-spacing:.08em;text-transform:uppercase;font-size:12px;font-weight:700;padding-top:3px;flex:none}
+.specList li b{color:#f5f3ef;text-align:right;font-weight:600}
+.divider{border:0;border-top:1px solid #232327;margin:72px 0 0}
+
+/* Principles and founder */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:860px){ .two{grid-template-columns:1fr} }
+.plain{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:34px}
+.plain h3{font-size:30px;margin:0 0 12px;line-height:1.15}
+.plain p{color:var(--muted);margin:0 0 14px;line-height:1.75}
+.plain p strong{color:var(--ink)}
+.plain p:last-child{margin-bottom:0}
+.stepsStatic{display:grid;gap:0;margin-top:22px;border-top:1px solid var(--line)}
+.stepsStatic div{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.stepsStatic b{font-family:"Playfair Display",serif;font-size:26px;color:var(--gold)}
+.stepsStatic strong{display:block;color:var(--ink);font-size:16px}
+.stepsStatic span{color:var(--muted);font-size:15px}
+
+/* Investors */
+.invest{background:var(--bg2);border-block:1px solid var(--line)}
+.invGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){ .invGrid{grid-template-columns:1fr} }
+.inv{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.inv .num{font-family:"Playfair Display",serif;font-size:30px;color:var(--gold);display:block;margin-bottom:12px}
+.inv b{font-size:18px;display:block;margin-bottom:8px;letter-spacing:.01em}
+.inv p{color:var(--muted);margin:0;font-size:15.5px;line-height:1.7}
+
+/* Contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(38px,6vw,58px);line-height:1.08;margin:0 0 14px}
+.contact p{color:var(--muted);max-width:620px;margin:0 auto 26px;font-size:18px;line-height:1.7}
+.mailBig{display:inline-block;font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(20px,3.4vw,28px);color:var(--gold);text-decoration:none;word-break:break-all;border-bottom:1px solid color-mix(in srgb, var(--gold) 45%, transparent);padding-bottom:4px}
+.mailBig:hover{color:var(--gold2)}
+.addr{font-style:normal;margin:36px auto 0;max-width:420px;border-top:1px solid var(--line);padding-top:28px;color:var(--muted);font-size:16.5px;line-height:1.75}
+.addr b{display:block;color:var(--ink);font-size:19px;letter-spacing:.01em}
+.addr .org{color:var(--ink);font-weight:600}
+.addr a{color:var(--gold);text-decoration:none}
+.addr a:hover{color:var(--gold2)}
+.copyRow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.copyMsg{min-height:24px;color:var(--good);font-weight:600;margin-top:14px}
+
+footer{border-top:1px solid var(--line);padding:32px 0 42px;color:var(--faint);font-size:14px}
+.footIn{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="pageRoot">
+<header>
+<nav aria-label="Main">
+  <div class="wrap navIn">
+    <a class="brand" href="#top">
+      <span class="brandMark"><img src="assets/hcc-logo.png" alt="Harmonic Custom Concepts logo with a phoenix over the letters H and C"></span>
+      <span><b>Harmonic</b><small>CUSTOM CONCEPTS</small></span>
+    </a>
+    <div class="navLinks">
+      <a href="#work">Work</a>
+      <a href="#vision">Builds</a>
+      <a href="#founder">Founder</a>
+      <a href="#investors">Investors</a>
+      <button class="rotateBtn" type="button" id="rotateBtn" aria-pressed="false" title="Switch this page between portrait and landscape">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+        <span id="rotateBtnLabel">Landscape</span>
+      </button>
+      <a class="navCta" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap heroIn">
+    <div class="heroText">
+      <h1 class="heroWords"><span>Build.</span><span>Repair.</span><span>Create.</span><span>Evolve.</span></h1>
+      <p class="heroSub">Where Technology Meets Artistry</p>
+      <p class="heroLead">Harmonic Custom Concepts is a technology and design studio in East Texas. We build original software for people the big platforms overlook, and we build it from inside the problem. <strong>If you have lived it, you design it differently.</strong></p>
+      <a class="btnStart" href="#contact">Start a Project</a>
+      <div class="heroMeta">
+        <span>East Texas, near Tyler</span>
+        <span>Michael Jeffrey Spencer, Founder</span>
+        <span>Tech / Design / Solutions</span>
+      </div>
+    </div>
+    <div class="heroArt">
+      <img src="assets/hero-phoenix.webp" alt="A phoenix sculpted from polished silver and gold metal with wings spread, golden streams of light and data flowing from its wings across a black background">
+    </div>
+  </div>
+</div>
+
+<section class="featured" aria-label="Featured work">
+  <div class="wrap">
+    <div class="featuredHead">
+      <h2>Featured Work</h2>
+      <span>Screenshots and concept imagery</span>
+    </div>
+    <div class="featGrid">
+      <a class="feat" href="#vision">
+        <figure style="margin:0">
+          <img src="assets/spades-build.png" alt="Concept image of the Spades Blast lobby at the cosmic table with the Play button, a Diamond VI rank, and ranked access at $4.99">
+          <figcaption><span>Spades Blast</span><i>Lobby concept</i></figcaption>
+        </figure>
+      </a>
+      <a class="feat" href="#vision">
+        <figure style="margin:0">
+          <img class="portrait" src="assets/prosay-build-home.png" alt="Screenshot from the actual ProsaY build showing the Home screen with Protect capture options and the words Prepare. Practice. Perform.">
+          <figcaption><span>ProsaY</span><i>Actual build</i></figcaption>
+        </figure>
+      </a>
+      <a class="feat" href="#vision">
+        <figure style="margin:0">
+          <span class="featText"><span><b>X-plore</b>No build screenshot yet</span></span>
+          <figcaption><span>X-plore</span><i>In development</i></figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="philo" aria-label="How HCC works">
+  <div class="wrap">
+    <p class="label">The HCC standard</p>
+    <blockquote>We see who you are and we know what you are going through, and we want to offer an experience that by far surpasses that of any other application in the market. <b>Because we are Harmonic Custom Concepts.</b></blockquote>
+    <cite>THE STANDARD EVERY HCC PRODUCT IS MEASURED AGAINST</cite>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="secHead">
+      <p class="label">The work</p>
+      <h2>What we are building</h2>
+      <hr class="rule">
+      <p>Four products, each one aimed at a moment when a person is on their own and the stakes are real. Status is stated plainly on every one.</p>
+    </div>
+
+    <div class="workGrid">
+
+      <article class="card">
+        <div class="cardTop">
+          <div><h3>ProsaY</h3><div class="kind">Court preparation</div></div>
+          <span class="status build">In rebuild</span>
+        </div>
+        <p class="tag">Have your SAY in court.</p>
+        <p>ProsaY walks a person through building a case in one clear flow, from the first fact to a finished filing. It was designed from the experience of walking into a courtroom unprepared, so nobody else has to.</p>
+        <ul class="facts">
+          <li><b>Prepare. Practice. Perform.</b> Build the case, rehearse in the courtroom simulator, then export and walk in ready.</li>
+          <li><b>Case Builder is step zero.</b> Evidence Vault, document review, and a complete motion library live inside the flow.</li>
+          <li><b>Verification before trust.</b> Claims get checked before they ever reach a filing.</li>
+          <li><b>Now in a full Flutter rebuild</b> with the web demo live for demonstrations.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div><h3>Spades Blast</h3><div class="kind">Competitive spades game</div></div>
+          <span class="status build">In development</span>
+        </div>
+        <p class="tag">Cosmic Competitive Spades</p>
+        <p>A competitive spades game built for players who take the table seriously. Climb from <strong>NEWBIE to QUANTUM</strong>, play in first person at a living table, and feel every trick land.</p>
+        <ul class="facts">
+          <li><b>Modes:</b> ranked 2v2, 1v1, and free for all, plus tournaments, duel draft, and practice against AI.</li>
+          <li><b>Free to play</b> with cosmetics. Ranked play is subscribers only at $4.99 a month.</li>
+          <li><b>Your rank stays yours.</b> A lapsed subscription pauses ranked play and never wipes your rank.</li>
+          <li><b>Built to the master spec,</b> milestone by milestone, with the trick zone always in clear sight.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div><h3>X-plore</h3><div class="kind">Dating and connection</div></div>
+          <span class="status build">In development</span>
+        </div>
+        <p class="tag">Powered by the Clair engine</p>
+        <p>A dating app built around sincerity instead of swiping volume. The <strong>Clair engine</strong> matches on resonance, and the design protects attention. Attention is sacred here, never flooded.</p>
+        <ul class="facts">
+          <li><b>No likes anywhere.</b> Ten sparks a day total, whether you spark or ghost, so every choice means something.</li>
+          <li><b>Touch rituals are rare by design.</b> A weekly ritual goes only to someone you truly want to reach.</li>
+          <li><b>Whispers change with the sender.</b> The conversation takes on the color of the person who wrote last.</li>
+          <li><b>Verified people only.</b> Liveness checks at every level, with stronger verification as access grows.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div><h3>A Lifelong Forge</h3><div class="kind">Research and theory</div></div>
+          <span class="status live">Published 2025</span>
+        </div>
+        <p class="tag">The Harmonic Life Force Theory</p>
+        <p>The research underneath everything HCC builds. Written by Michael Jeffrey Spencer as an independent researcher and published in 2025, it argues one claim across physics and the soul: <strong>power is born through opposition.</strong></p>
+        <ul class="facts">
+          <li><b>The Law of Resistance</b> is the core claim, mapped across 63 scientific principles.</li>
+          <li><b>A full scripture analysis</b> sits alongside the science, tested against the same claim.</li>
+          <li><b>It is the anchor document</b> behind the Clair engine and the HCC design philosophy.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="vision" id="vision">
+  <div class="wrap">
+    <div class="secHead">
+      <p class="label">Builds and concepts</p>
+      <h2>What the builds look like today</h2>
+      <hr class="rule">
+      <p>Pictures in this section are labeled for what they are: screenshots from an actual build, or concept imagery for a design still in development. Where a product has no build ready to show, this page says so instead of showing a picture of something that does not exist yet.</p>
+    </div>
+
+    <article class="showcase">
+      <figure class="showcaseFig">
+        <img src="assets/spades-build.png" alt="Concept image of the Spades Blast lobby at the cosmic table: the Spades Blast title, Cosmic Two v Two, a glowing Play button at the center of the table, a Diamond VI current rank, and global rank access at $4.99 with free play with ads">
+        <figcaption><span><b>Spades Blast</b> &nbsp;·&nbsp; Lobby concept</span><span>Concept imagery</span></figcaption>
+      </figure>
+      <div class="showcaseBody">
+        <div>
+          <h3>First person at the table. <span>This is the lobby concept.</span></h3>
+          <p>What you see above is concept imagery, not the finished product: the first person seat at the cosmic table, Cosmic Two v Two, Play at the center, your current rank on the left and ranked access on the right.</p>
+          <p>Ranked, Tournaments, Teams and Practice all launch from this one screen. The full game is still in development, milestone by milestone, and the table only gets better from here.</p>
+        </div>
+        <ul class="specList">
+          <li><span>View</span><b>First person, at the table</b></li>
+          <li><span>From the lobby</span><b>Ranked · Tournaments · Teams · Practice</b></li>
+          <li><span>Ladder</span><b>NEWBIE to QUANTUM</b></li>
+          <li><span>Ranked</span><b>Subscribers, $4.99 a month</b></li>
+          <li><span>Modes</span><b>2v2 · 1v1 · Free for all</b></li>
+        </ul>
+      </div>
+    </article>
+
+    <hr class="divider">
+
+    <article class="showcase">
+      <figure class="showcaseFig">
+        <div class="shotsRow">
+          <figure>
+            <img src="assets/prosay-build-home.png" alt="Screenshot from the actual ProsaY build showing the Home screen: Protect capture options for a quick note, uploaded files, a photo, or a video, above the words Prepare. Practice. Perform. and Have your SAY in court">
+            <figcaption>Home</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/prosay-build-case-builder.png" alt="Screenshot from the actual ProsaY build showing Case Builder, stage 1 of 14 in a sample case, with capture a note and capture a file or photo">
+            <figcaption>Case Builder · Stage 1 of 14</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/prosay-build-evidence.png" alt="Screenshot from the actual ProsaY build showing Evidence Import and the Evidence Vault holding sample case documents in a sample case">
+            <figcaption>Evidence Vault · Stage 3 of 14</figcaption>
+          </figure>
+        </div>
+        <figcaption><span><b>ProsaY</b> &nbsp;·&nbsp; Three screens, from the build</span><span>Screenshots · October 2026 build</span></figcaption>
+      </figure>
+      <div class="showcaseBody">
+        <div>
+          <h3>One flow from first fact <span>to finished filing.</span></h3>
+          <p>These are real screens from the Flutter build, taken in a sample demonstration case. Home puts capture first. Case Builder is stage 1 of 14, gather first and organize second. The Evidence Vault holds what the case is built on.</p>
+          <p>Prepare builds the case. Practice steadies the person. Perform is the real courtroom, entered ready.</p>
+        </div>
+        <ul class="specList">
+          <li><span>Flow</span><b>Prepare · Practice · Perform</b></li>
+          <li><span>Step zero</span><b>Case Builder</b></li>
+          <li><span>Inside the flow</span><b>Evidence Vault · Motions</b></li>
+          <li><span>Trust</span><b>Verification before filing</b></li>
+          <li><span>Status</span><b>Flutter rebuild under way</b></li>
+        </ul>
+      </div>
+    </article>
+
+    <hr class="divider">
+
+    <article class="showcase">
+      <figure class="showcaseFig">
+        <div class="noShot">
+          <b>No screenshot yet, on purpose.</b>
+          <span>X-plore is in development and has no build ready to show today. Rather than picture it with an image of something that does not exist, this space stays empty until a screenshot can come from the actual build, like the ones above.</span>
+        </div>
+        <figcaption><span><b>X-plore</b> &nbsp;·&nbsp; In development</span><span>No build screenshot yet</span></figcaption>
+      </figure>
+      <div class="showcaseBody">
+        <div>
+          <h3>Resonance first. <span>Attention protected.</span></h3>
+          <p>X-plore is being built to feel quiet and deliberate. The Clair engine does the matching work underneath, while the surface stays human: few choices, each one meant, and no flood competing for a glance.</p>
+          <p>Ten sparks a day. One ritual a week. Verified people only. Scarcity here is not a limit. It is the point.</p>
+        </div>
+        <ul class="specList">
+          <li><span>Engine</span><b>Clair</b></li>
+          <li><span>Sparks</span><b>Ten actions a day, total</b></li>
+          <li><span>Rituals</span><b>One a week, by design</b></li>
+          <li><span>Likes</span><b>None, anywhere</b></li>
+          <li><span>People</span><b>Verified, liveness at every level</b></li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="forge">
+  <div class="wrap">
+    <div class="two">
+      <div class="plain">
+        <p class="label">The idea underneath</p>
+        <h3>The Law of Resistance</h3>
+        <p>In physics, nothing moves without opposition. In a life, nothing grows without it either. <strong>A Lifelong Forge</strong> argues those are the same law, and HCC builds like it is true: pressure, applied honestly, is what makes a thing strong.</p>
+        <div class="stepsStatic">
+          <div><b>01</b><p><strong>Opposition is real</strong><span>It is named plainly, never wished away or dressed up.</span></p></div>
+          <div><b>02</b><p><strong>Pressure is applied honestly</strong><span>The work meets the resistance directly, step by step.</span></p></div>
+          <div><b>03</b><p><strong>Strength is the result</strong><span>What survives the forge carries the mark of it, for good.</span></p></div>
+        </div>
+      </div>
+
+      <div class="plain" id="founder">
+        <p class="label">The founder</p>
+        <h3>Michael Jeffrey Spencer</h3>
+        <p><strong>Owner and CEO of Harmonic Custom Concepts, East Texas.</strong> Michael builds from first principles: picture every variable in a system, then move the one nobody else thought could move.</p>
+        <p>ProsaY exists because he lived its problem. He represented himself in a Smith County court fight against three attorneys, won his judgment, and came out knowing exactly what an unprepared person is up against in that room. Every HCC product starts the same way: at the moment it has to serve.</p>
+        <p>His words for the work are simple. Build, repair, create, evolve. In that order, every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="invest" id="investors">
+  <div class="wrap">
+    <div class="secHead">
+      <p class="label">For investors and funders</p>
+      <h2>Where HCC stands</h2>
+      <hr class="rule">
+      <p>Plainly, so a serious conversation can start fast. HCC is preparing to pitch now, and this site is the front door for that conversation.</p>
+    </div>
+    <div class="invGrid">
+      <div class="inv"><span class="num">01</span><b>What exists today</b><p>Three software products under one roof, each with its status stated plainly above: ProsaY in rebuild with a live web demo for demonstrations, Spades Blast and X-plore in development under a complete master spec, plus one published theory, A Lifelong Forge from 2025, anchoring the design.</p></div>
+      <div class="inv"><span class="num">02</span><b>What funding does</b><p>Finishes and launches what is already designed: hosting and server costs, legal review where a product needs it, and the runway to ship without cutting corners that users will pay for later.</p></div>
+      <div class="inv"><span class="num">03</span><b>How HCC partners</b><p>Michael reviews and approves every application and every pitch himself. He is open to aligned partners and grant funding, and he keeps ownership and control of what he built. Start with a conversation.</p></div>
+    </div>
+    <div class="ctaRow" style="justify-content:flex-start;margin-top:32px">
+      <a class="btn btnDark" href="mailto:michaelspencer.hcc26@gmail.com?subject=Investor%20conversation%20with%20HCC">Start an investor conversation</a>
+      <a class="btn btnLine" href="#contact">All contact options</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <h2>Talk to a person</h2>
+    <p>Investor, funder, partner, or someone who needs what we build: write to Michael directly. He reads it himself and he answers it himself.</p>
+    <a class="mailBig" href="mailto:michaelspencer.hcc26@gmail.com">Michaelspencer.hcc26@gmail.com</a>
+    <div class="copyRow">
+      <a class="btn btnDark" href="mailto:michaelspencer.hcc26@gmail.com?subject=Hello%20HCC">Write an email</a>
+      <button class="btn btnLine" type="button" id="copyBtn">Copy the email address</button>
+    </div>
+    <p class="copyMsg" id="copyMsg" aria-live="polite"></p>
+    <address class="addr">
+      <b>Michael Jeffrey Spencer</b>
+      <span class="org">Harmonic Custom Concepts</span><br>
+      21389 Mixon Rd<br>
+      Troup, Texas 75789<br>
+      <a href="mailto:michaelspencer.hcc26@gmail.com">Michaelspencer.hcc26@gmail.com</a>
+    </address>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footIn">
+    <div><b>Harmonic Custom Concepts</b> · Build · Repair · Create · Evolve</div>
+    <div>Designed and built by Harmonic Custom Concepts · Michael Jeffrey Spencer</div>
+  </div>
+</footer>
+</div><!-- /#pageRoot -->
+
+<script>
+(function(){
+  "use strict";
+  /* Landscape on phones, in three layers:
+     1. A browser that rotates on its own gets the landscape layout from
+        the CSS media queries above; this script stays out of the way.
+     2. Some in-app webviews hold the viewport in portrait even when the
+        phone is turned sideways, so the viewport and screen.orientation
+        never report landscape. The motion sensor still feels the turn,
+        so this script watches the gravity vector continuously and
+        rotates the page itself when the phone is physically sideways,
+        then rotates back when the phone is upright again.
+     3. If the page gets no sensor readings at all (a webview may block
+        them), the Landscape button in the nav forces the same rotated
+        layout by hand. Tapping it again (it reads Portrait while the
+        rotated layout is on) returns the page to portrait. */
+  var root = document.documentElement;
+  var btn = document.getElementById("rotateBtn");
+  var btnLabel = document.getElementById("rotateBtnLabel");
+
+  var manual = false;      /* rotated by the nav button */
+  var suppress = false;    /* user dismissed a sensor triggered rotation */
+  var sensorSide = false;  /* motion sensor: phone physically sideways */
+  var sensorDir = -90;     /* rotation direction implied by the sensors */
+  var manualDir = -90;     /* last known good rotation direction */
+  var sideSince = 0, portSince = 0;
+  var applied = "";        /* last state written to the DOM */
+
+  function viewportLandscape(){ return window.innerWidth > window.innerHeight; }
+
+  function screenAngle(){
+    if (window.screen && window.screen.orientation && typeof window.screen.orientation.angle === "number") {
+      return ((window.screen.orientation.angle % 360) + 360) % 360;
+    }
+    if (typeof window.orientation === "number") {
+      return ((window.orientation % 360) + 360) % 360;
+    }
+    return null;
+  }
+  function screenLandscape(){
+    if (window.screen && window.screen.orientation && window.screen.orientation.type) {
+      return window.screen.orientation.type.indexOf("landscape") === 0;
+    }
+    var a = screenAngle();
+    return a === 90 || a === 270;
+  }
+  function currentDir(){
+    if (sensorSide) { manualDir = sensorDir; return sensorDir; }
+    var a = screenAngle();
+    if (a === 90) { manualDir = -90; return -90; }
+    if (a === 270) { manualDir = 90; return 90; }
+    return manualDir;
+  }
+
+  function apply(){
+    var locked = !viewportLandscape() && window.innerWidth <= 1100 &&
+      (manual || screenLandscape() || (sensorSide && !suppress));
+    var dir = locked ? currentDir() : -90;
+    if (locked) {
+      /* Size the rotated frame from the measured layout viewport, in
+         exact pixels, and refresh the measurement on every pass (this
+         runs on a timer as well as on resize): the rotated frame is
+         exactly as wide as the portrait frame is tall and exactly as
+         tall as it is wide, so once rotated it covers the visible
+         frame edge to edge, with nothing clipped and no band left
+         over. vh and vw units are not trusted for this: in the
+         portrait locked webview that produced the sideways, clipped
+         screenshot, 100vh measured far less than the visible height. */
+      root.style.setProperty("--lock-w", window.innerHeight + "px");
+      root.style.setProperty("--lock-h", window.innerWidth + "px");
+      root.style.setProperty("--lock-rot", dir + "deg");
+    }
+    var state = locked ? ("on" + dir) : "off";
+    if (state === applied) return;
+    applied = state;
+    if (locked) {
+      root.classList.add("locked-landscape");
+    } else {
+      root.classList.remove("locked-landscape");
+    }
+    if (btn) {
+      btn.setAttribute("aria-pressed", locked ? "true" : "false");
+      if (btnLabel) btnLabel.textContent = locked ? "Portrait" : "Landscape";
+    }
+  }
+
+  /* The gravity vector is the one signal a portrait locked webview
+     cannot fake: upright, gravity runs along the phone's long axis;
+     turned sideways, it runs along the short axis. The sign of the
+     short axis reading also says which way the phone was turned, so
+     the page rotates the matching direction. Readings must hold
+     briefly so a passing tilt does not flicker the layout. */
+  function onMotion(e){
+    var g = e.accelerationIncludingGravity;
+    if (!g || (g.x === null && g.y === null)) return;
+    var x = g.x || 0, y = g.y || 0;
+    var ax = Math.abs(x), ay = Math.abs(y);
+    if (ax < 0.5 && ay < 0.5) return;
+    var now = Date.now();
+    if (ax > 6 && ax > ay * 1.2) {
+      if (!sideSince) sideSince = now;
+      portSince = 0;
+      sensorDir = x > 0 ? 90 : -90;
+      if (now - sideSince > 200) { sensorSide = true; apply(); }
+    } else if (ay > 6 && ay > ax * 1.2) {
+      if (!portSince) portSince = now;
+      sideSince = 0;
+      if (now - portSince > 500 && sensorSide) {
+        sensorSide = false; suppress = false; apply();
+      }
+    }
+  }
+  window.addEventListener("devicemotion", onMotion, {passive:true});
+
+  /* iOS only hands out motion readings after a permission granted
+     inside a tap, so ask on the first tap anywhere, and again from
+     the Landscape button itself. Android needs no permission. */
+  var permAsked = false;
+  function askPermission(){
+    if (permAsked) return; permAsked = true;
+    try {
+      if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === "function") {
+        var p = window.DeviceMotionEvent.requestPermission();
+        if (p && p.catch) p.catch(function(){});
+      }
+    } catch (err) {}
+  }
+  window.addEventListener("pointerdown", askPermission, {passive:true});
+
+  if (btn) {
+    btn.addEventListener("click", function(){
+      askPermission();
+      if (root.classList.contains("locked-landscape")) {
+        manual = false;
+        suppress = true; /* stay in portrait until the phone turns again */
+      } else {
+        manual = true;
+        suppress = false;
+      }
+      applied = "";
+      apply();
+    });
+  }
+
+  window.addEventListener("resize", apply, {passive:true});
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", apply, {passive:true});
+  }
+  window.addEventListener("orientationchange", function(){
+    apply(); setTimeout(apply, 80); setTimeout(apply, 350);
+  }, {passive:true});
+  if (window.screen && window.screen.orientation && window.screen.orientation.addEventListener) {
+    window.screen.orientation.addEventListener("change", apply);
+  }
+  /* Kept running for the life of the page: locked webviews may deliver
+     an orientation change long after load, with no event at all. */
+  setInterval(apply, 600);
+  apply();
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  var copyBtn = document.getElementById("copyBtn");
+  var copyMsg = document.getElementById("copyMsg");
+  if (!copyBtn) return;
+  copyBtn.addEventListener("click", function(){
+    var email = "michaelspencer.hcc26@gmail.com";
+    function done(){ copyMsg.textContent = "Copied. Paste it anywhere you write email."; }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = email; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); }
+      catch(e){ copyMsg.textContent = email; }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
