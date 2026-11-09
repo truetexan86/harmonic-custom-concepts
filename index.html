@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Harmonic Custom Concepts is an East Texas technology and design studio owned by Michael Jeffrey Spencer. ProsaY, Spades Blast, X-plore, and Claer.">
+<meta name="description" content="Harmonic Custom Concepts is an East Texas technology and design studio owned by Michael Jeffrey Spencer. Featuring Claer, the resonance matching engine powering X-plore, alongside ProsaY and Spades Blast.">
 <link rel="icon" href="data:,">
 <title>Harmonic Custom Concepts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,6 +171,51 @@ html.locked-landscape .rotateBtn{display:inline-flex}
   .wingConsole .wcTitle{font-size:9.5px}
 }
 
+/* Featured Claer callout inside the hero */
+.claerPill{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 14px;border:1px solid rgba(226,201,143,.55);background:rgba(4,5,10,.62);color:#f5f3ef;text-decoration:none;max-width:640px;animation:heroIn 1.1s ease .54s both}
+.claerPill:hover{border-color:var(--gold2)}
+.claerPill b{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);white-space:nowrap}
+.claerPill span{font-size:14.5px;line-height:1.45;color:#e8e6df}
+.claerPill span u{text-decoration-color:var(--gold);text-underline-offset:3px}
+@media (max-width:700px){ .claerPill{flex-direction:column;align-items:flex-start;gap:4px} }
+
+/* Claer feature: the home screen feature, directly under the hero */
+.claerFeature{background:#070708;color:#f5f3ef;border-bottom:1px solid #222226;padding:96px 0;position:relative;overflow:hidden}
+.claerFeature::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 320px at 88% 8%,rgba(200,169,106,.14),rgba(200,169,106,0) 70%);pointer-events:none}
+.claerFeature .wrapWide{position:relative}
+.claerHead{max-width:900px;margin-bottom:40px}
+.claerHead h2{font-size:clamp(44px,6vw,76px);line-height:1.02;margin:0 0 16px}
+.claerHead h2 em{color:var(--gold);font-style:italic}
+.claerHead .lede{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(21px,2.6vw,28px);line-height:1.4;color:#e8e6df;margin:0 0 16px}
+.claerHead p{color:#bdbab2;font-size:18px;line-height:1.75;margin:0}
+.claerGrid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:start}
+@media (max-width:920px){ .claerGrid{grid-template-columns:1fr;gap:32px} }
+.claerCopy p{color:#bdbab2;font-size:17.5px;line-height:1.8;margin:0 0 18px}
+.claerCopy p strong{color:#fff}
+.claerCopy p:last-of-type{margin-bottom:0}
+.claerBoard{background:#0d0d10;border:1px solid #2c2c30;padding:26px 24px 20px}
+.boardHead{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline;margin-bottom:18px}
+.boardHead b{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+.boardHead span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8f8c85}
+.eq{display:flex;align-items:flex-end;gap:5px;height:176px;border-bottom:1px solid #2c2c30}
+.eqCol{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.eqBar{width:100%;background:var(--gold);opacity:.92}
+.eqCol.dim .eqBar{background:#5c5c62;opacity:.8}
+.eqCol.hot .eqBar{background:var(--gold2);box-shadow:0 0 14px rgba(226,201,143,.35)}
+.eqLabels{display:flex;gap:5px;margin-top:9px}
+.eqLabels span{flex:1 1 0;min-width:0;text-align:center;font-size:9.5px;font-weight:700;letter-spacing:.02em;color:#8f8c85}
+.boardCap{color:#8f8c85;font-size:14.5px;line-height:1.65;margin:16px 0 0}
+.boardCap b{color:#e8e6df}
+.claerStats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px;border-top:1px solid #2c2c30;padding-top:20px}
+.claerStats b{display:block;font-family:"Playfair Display",serif;font-weight:600;font-size:38px;line-height:1;color:var(--gold)}
+.claerStats span{display:block;margin-top:7px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8f8c85;line-height:1.55}
+.claerSpecs{list-style:none;margin:26px 0 0;padding:0;border-top:1px solid #2c2c30}
+.claerSpecs li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #2c2c30;font-size:15.5px}
+.claerSpecs li span{color:#8f8c85;letter-spacing:.08em;text-transform:uppercase;font-size:12px;font-weight:700;padding-top:3px;flex:none}
+.claerSpecs li b{color:#f5f3ef;text-align:right;font-weight:600}
+.claerCtas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+@media (max-width:560px){ .eq{height:132px;gap:3px} .eqLabels{gap:3px} .eqLabels span{font-size:7.5px} .claerBoard{padding:20px 14px 16px} .claerStats b{font-size:30px} }
+
 /* Ticker under the hero */
 .ticker{background:#04050a;color:#8f8c85;border-bottom:1px solid #1d1f27;overflow:hidden;padding:15px 0}
 .tickerTrack{display:flex;width:max-content;animation:tick 46s linear infinite}
@@ -313,6 +358,7 @@ footer b{color:var(--muted)}
   .heroWords{font-size:clamp(38px,12.5svh,58px)}
   .heroSub{font-size:19px;margin-top:12px}
   .heroLead{display:none}
+  .claerPill{display:none}
   .heroCtas{margin-top:16px}
   .btnStart,.btnGhost{padding:13px 26px;font-size:13px}
   .heroMeta{display:none}
@@ -320,6 +366,8 @@ footer b{color:var(--muted)}
   .wingConsole{width:246px;top:56%;right:2.5%;padding:10px 13px 12px}
   .wcLine{font-size:10.5px;line-height:1.8}
   .wcTitle{font-size:9.5px}
+  .claerFeature{padding:44px 0}
+  .claerHead h2{font-size:clamp(32px,5vw,44px)}
   .story{padding:44px 0}
   .story h2{font-size:clamp(32px,5vw,44px)}
   .statRow{grid-template-columns:repeat(4,1fr);margin-top:32px;padding-top:24px}
@@ -352,6 +400,7 @@ html.locked-landscape .heroIn{min-height:0;padding:26px 0 22px}
 html.locked-landscape .heroWords{font-size:52px}
 html.locked-landscape .heroSub{font-size:19px;margin-top:12px}
 html.locked-landscape .heroLead{display:none}
+html.locked-landscape .claerPill{display:none}
 html.locked-landscape .heroCtas{margin-top:16px}
 html.locked-landscape .heroMeta{display:none}
 html.locked-landscape .ticker{display:none}
@@ -381,6 +430,7 @@ html.locked-landscape .contact h2{font-size:40px}
       <span><b>Harmonic</b><small>CUSTOM CONCEPTS</small></span>
     </a>
     <div class="navLinks">
+      <a href="#claer">Claer</a>
       <a href="#story">Story</a>
       <a href="#work">Work</a>
       <a href="#vision">Builds</a>
@@ -428,13 +478,16 @@ html.locked-landscape .contact h2{font-size:40px}
       <h1 class="heroWords"><span>Build.</span><span>Repair.</span><span>Create.</span><span>Evolve.</span></h1>
       <p class="heroSub">Where Technology Meets Artistry</p>
       <p class="heroLead">Harmonic Custom Concepts is a technology and design studio in East Texas. We build original software for people the big platforms overlook, and we build it from inside the problem. <strong>If you have lived it, you design it differently.</strong></p>
+      <a class="claerPill" href="#claer"><b>Now featuring Claer</b><span>The resonance engine powering X-plore and built for a greater future. <u>Meet Claer below</u></span></a>
       <div class="heroCtas">
-        <a class="btnStart" href="#contact">Start a Project</a>
+        <a class="btnStart" href="#claer">Meet Claer</a>
         <a class="btnGhost" href="#vision">See the Builds</a>
+        <a class="btnGhost" href="#contact">Start a Project</a>
       </div>
       <div class="heroMeta">
         <span>East Texas, near Tyler</span>
         <span>Michael Jeffrey Spencer, Founder</span>
+        <span>Claer · Featured Engine</span>
         <span>Tech / Design / Solutions</span>
       </div>
     </div>
@@ -458,6 +511,71 @@ html.locked-landscape .contact h2{font-size:40px}
     <span>Build <b>·</b> Repair <b>·</b> Create <b>·</b> Evolve <b>·</b> Tech <b>·</b> Design <b>·</b> Solutions <b>·</b> ProsaY <b>·</b> Spades Blast <b>·</b> X-plore <b>·</b> Claer <b>·</b>&nbsp;</span>
   </div>
 </div>
+
+<section class="claerFeature" id="claer" aria-label="Claer, featured engine">
+  <div class="wrapWide">
+    <div class="claerHead reveal">
+      <p class="label">Featured engine</p>
+      <h2>Claer. <em>The engine that learns resonance.</em></h2>
+      <p class="lede">It does not chase attention. It learns what truly fits.</p>
+      <p>Claer is the matching engine Harmonic Custom Concepts built for X-plore, and the technology the company is building its greater future on. Learn from behavior. Reward character as much as attraction. Keep choice with the person.</p>
+    </div>
+    <div class="claerGrid">
+      <div class="claerCopy">
+        <p>Where other engines sort people by swipes, photos and data trails, <strong>Claer builds a feature code for each person</strong> and learns from that person&rsquo;s own choices, in that person&rsquo;s own order, until the pattern of what excites them becomes clear. It learns from behavior, not from the content of anyone&rsquo;s whispers.</p>
+        <p>Every viewer carries a personal board of <strong>seventeen digits</strong>. Each digit holds nine shades of a trait. When one shade rises because it was chosen, the others ease down in a waterfall and the points spread back across the whole board, so no one stays stuck on an old pattern. A dimension Claer has not learned yet is skipped. It is never guessed at full weight, and there is no single global formula forced on everyone.</p>
+        <p><strong>X-plore is the first home for Claer, not the last.</strong> The same fit learning belongs anywhere fit matters, once dating has proven it live. That wider future includes the experience side of adult life, where fit, price, quality and service should earn a place and paid placement should never buy one. Claer was designed from the start for that road, in that order.</p>
+        <ul class="claerSpecs">
+          <li><span>First home</span><b>X-plore, live in development</b></li>
+          <li><span>Learns from</span><b>Behavior and choice</b></li>
+          <li><span>Rewards</span><b>Character as much as attraction</b></li>
+          <li><span>Placement</span><b>Earned by fit, never bought</b></li>
+          <li><span>Direction</span><b>Anywhere fit matters, after dating proves it</b></li>
+        </ul>
+        <div class="claerCtas">
+          <a class="btnStart" href="mailto:michaelspencer.hcc26@gmail.com?subject=Claer%20conversation%20with%20HCC">Talk about Claer</a>
+          <a class="btnGhost" href="#vision">See Claer inside X-plore</a>
+        </div>
+      </div>
+      <div>
+        <div class="claerBoard" role="img" aria-label="Illustration of the Claer board: seventeen columns for seventeen feature code digits, each at a different height to show one person&rsquo;s learned resonance pattern">
+          <div class="boardHead"><b>The Claer board</b><span>One person at a time</span></div>
+          <div class="eq" aria-hidden="true">
+            <div class="eqCol dim"><div class="eqBar" style="height:34%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:58%"></div></div>
+            <div class="eqCol hot"><div class="eqBar" style="height:88%"></div></div>
+            <div class="eqCol dim"><div class="eqBar" style="height:26%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:64%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:47%"></div></div>
+            <div class="eqCol hot"><div class="eqBar" style="height:79%"></div></div>
+            <div class="eqCol dim"><div class="eqBar" style="height:31%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:55%"></div></div>
+            <div class="eqCol hot"><div class="eqBar" style="height:92%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:61%"></div></div>
+            <div class="eqCol dim"><div class="eqBar" style="height:38%"></div></div>
+            <div class="eqCol hot"><div class="eqBar" style="height:84%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:52%"></div></div>
+            <div class="eqCol dim"><div class="eqBar" style="height:29%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:69%"></div></div>
+            <div class="eqCol"><div class="eqBar" style="height:44%"></div></div>
+          </div>
+          <div class="eqLabels" aria-hidden="true"><span>D1</span><span>D2</span><span>D3</span><span>D4</span><span>D5</span><span>D6</span><span>D7</span><span>D8</span><span>D9</span><span>D10</span><span>D11</span><span>D12</span><span>D13</span><span>D14</span><span>D15</span><span>D16</span><span>D17</span></div>
+          <p class="boardCap"><b>Each column is a digit. Each digit holds nine gradients.</b> When a gradient rises, the rest ease down and the points spread across the board again. The board can always come back up. No pattern becomes a prison.</p>
+          <div class="claerStats">
+            <div><b>17</b><span>Digits in every feature code</span></div>
+            <div><b>9</b><span>Gradients in every digit</span></div>
+            <div><b>50</b><span>Signals to a mature read</span></div>
+          </div>
+        </div>
+        <ul class="claerSpecs">
+          <li><span>Learning</span><b>Cold, then warming, then mature</b></li>
+          <li><span>Standard</span><b>Quality over volume, precise over plenty</b></li>
+          <li><span>Data rule</span><b>Behavior, not whisper content</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="story" id="story">
   <div class="wrapWide">
@@ -538,7 +656,7 @@ html.locked-landscape .contact h2{font-size:40px}
           <span class="status build">In development</span>
         </div>
         <p class="tag">Powered by Claer</p>
-        <p>A dating app built around sincerity instead of swiping volume. <strong>Claer</strong> matches on resonance, and the design protects attention. Attention is sacred here, never flooded.</p>
+        <p>A dating app built around sincerity instead of swiping volume. <strong><a href="#claer" style="color:var(--gold);text-decoration-color:var(--gold);text-underline-offset:3px">Claer</a></strong> matches on resonance, and the design protects attention. Attention is sacred here, never flooded.</p>
         <ul class="facts">
           <li><b>No likes anywhere.</b> Ten sparks a day total, whether you spark or ghost, so every choice means something.</li>
           <li><b>Touch rituals are rare by design.</b> A weekly ritual goes only to someone you truly want to reach.</li>
@@ -701,7 +819,7 @@ html.locked-landscape .contact h2{font-size:40px}
       <p>Plainly, so a serious conversation can start fast. HCC is preparing to pitch now, and this site is the front door for that conversation.</p>
     </div>
     <div class="invGrid">
-      <div class="inv"><span class="num">01</span><b>What exists today</b><p>Three software products under one roof, each with its status stated plainly above: ProsaY in rebuild with a live web demo for demonstrations, Spades Blast and X-plore in development under a complete master spec, plus one published theory, A Lifelong Forge from 2025, anchoring the design.</p></div>
+      <div class="inv"><span class="num">01</span><b>What exists today</b><p>Three software products under one roof, each with its status stated plainly above: ProsaY in rebuild with a live web demo for demonstrations, Spades Blast and X-plore in development under a complete master spec, plus one published theory, A Lifelong Forge from 2025, anchoring the design. Featured at the center is Claer, the resonance engine powering X-plore and built for a greater future anywhere fit matters, once dating has proven it live.</p></div>
       <div class="inv"><span class="num">02</span><b>What funding does</b><p>Finishes and launches what is already designed: hosting and server costs, legal review where a product needs it, and the runway to ship without cutting corners that users will pay for later.</p></div>
       <div class="inv"><span class="num">03</span><b>How HCC partners</b><p>Michael reviews and approves every application and every pitch himself. He is open to aligned partners and grant funding, and he keeps ownership and control of what he built. Start with a conversation.</p></div>
     </div>
